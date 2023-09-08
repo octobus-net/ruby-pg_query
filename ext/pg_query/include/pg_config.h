@@ -902,6 +902,11 @@
 /* Define to 1 to use Intel SSE 4.2 CRC instructions with a runtime check. */
 /* #undef USE_SSE42_CRC32C_WITH_RUNTIME_CHECK */
 
+#include <stdlib.h>
+#if defined(__FreeBSD__) || defined(__NetBSD__) || (defined(__GLIBC__) && ((__GLIBC__ == 2 && __GLIBC_MINOR__ >= 38) || __GLIBC__ > 2))
+#define HAVE_STRCHRNUL
+#endif
+
 /* Define to build with systemd support. (--with-systemd) */
 /* #undef USE_SYSTEMD */
 
